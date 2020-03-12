@@ -21,10 +21,10 @@
 
 <!-- Exibir usuário autenticado, opcao sair e menu completo -->
         
-        <?php if(isset($_SESSION["nome"])) : ?>
+        <?php if(isset($_SESSION["cpf"])) : ?>
             <div class="text-right">
-                    Usuário: <?=$_SESSION["nome"]; ?> (<?=$_SESSION["perfil"]; ?>)
-                    <a href="ControllerLanchonete.php?op=logout">Sair</a>
+                    Usuário: <?=$_SESSION["nome"]; ?> (<?=$_SESSION["tipo"]; ?>)
+                    <a href="ControllerLogin.php?op=logout">Sair</a>
             </div>
 
             <!-- navegação http://getbootstrap.com/components/#navbar -->
@@ -47,11 +47,8 @@
                     <div class="collapse navbar-collapse" 
                          id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li><a href="index.php">Produtos</a></li>
-                            <?php if($_SESSION["perfil"] == "proprietario"): ?>
-                                <li><a href="ControllerLanchonete.php?op=pedidos-hoje">Pedidos de hoje</a></li>
-                                <li><a href="ControllerLanchonete.php?op=listar-funcionarios">Funcionários</a></li>
-                                <li><a href="ControllerLanchonete.php?op=listar-fornecedores">Fornecedores</a></li>
+                            <?php if($_SESSION["tipo"] == "proprietario"): ?>
+                                <li><a href="ControllerUsuario.php?op=lista">Usuarios</a></li>
                             <?php endif; ?>
                         </ul>
                     </div>

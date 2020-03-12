@@ -6,7 +6,7 @@
     </div>
     <div class="col-md-8">
         <!-- form pesquisa -->
-        <form action=""
+        <form action="ControllerUsuario.php?op=pesquisar"
               method="post"
               class="form-inline text-right">
             <div class="form-group">
@@ -24,7 +24,7 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h4>Listagem de Funcionários</h4>
+        <h4>Listagem de Usuários</h4>
     </div>
     <div class="panel-body">
         <table class="table table-striped">
@@ -33,14 +33,21 @@
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Cpf</th>
+                <th>Tipo</th>
+                <th>Editar</th>
+                <th>Excluir</th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($funcionarios as $funcionario): ?>
+            <?php foreach ($usuarios as $usuario): ?>
                 <tr>
-                    <td><?=$funcionario->getId();?></td>
-                    <td><?=$funcionario->getNome();?></td>
-                    <td><?=$funcionario->getCpf();?></td>
+                    <td><?=$usuario->getId();?></td>
+                    <td><?=$usuario->getNome();?></td>
+                    <td><?=$usuario->getCpf();?></td>
+                    <td><?=$usuario->getTipo();?></td>
+                    <td><a href="ControllerUsuario.php?op=editar&id=<?=$usuario->getId();?>" class="btn btn-primary">Editar</a></td>
+                    <td><a href="ControllerUsuario.php?op=excluir&id=<?=$usuario->getId();?>" class="btn btn-danger">Excluir</a></td>
+                    
                 </tr>
             <?php endforeach; ?>
             </tbody>

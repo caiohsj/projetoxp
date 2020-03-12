@@ -23,7 +23,7 @@
                 <input type="text" class="form-control" id="senha" name="senha" placeholder="Senha">
             </div>
             <div class="form-group">
-                <label for="cpf">CPF</label>
+                <label for="tipo">Tipo</label>
                 <select name="tipo" class="form-control">
                     <option value="medico">Medico</option>
                     <option value="proprietario">Proprietario</option>

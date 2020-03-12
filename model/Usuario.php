@@ -37,6 +37,28 @@ class Usuario
         return $usuario;
     }
 
+    public static function getLista()
+    {
+        $dao = new DaoUsuario();
+        $usuarios = $dao->getLista();
+        return $usuarios;
+    }
+
+    public static function getListaPorNome($nome)
+    {
+        $dao = new DaoUsuario();
+        $usuarios = $dao->getListaPorNome($nome);
+        return $usuarios;
+    }
+
+    public function remove()
+    {
+        $dao = new DaoUsuario();
+        $dao->delete($this->getId());
+
+
+    }
+
     public function getId()
     {
         return $this->id;
