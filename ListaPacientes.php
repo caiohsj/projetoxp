@@ -2,15 +2,15 @@
 
 <div class="row">
     <div class="col-md-4">
-        <a class="btn btn-default" href="ControllerUsuario.php?op=form">Novo Usuário</a>
+        <a class="btn btn-default" href="ControllerPaciente.php?op=form">Novo Paciente</a>
     </div>
     <div class="col-md-8">
         <!-- form pesquisa -->
-        <form action="ControllerUsuario.php?op=pesquisar"
+        <form action="ControllerPaciente.php?op=pesquisar"
               method="post"
               class="form-inline text-right">
             <div class="form-group">
-                <label for="descricao">Pesquisa por nome</label>
+                <label for="descricao">Pesquisa por Cpf</label>
                 <input type="text" class="form-control"
                        id="pesquisa" name="pesquisa"
                        value="<?=$pesquisa; ?>">
@@ -22,9 +22,9 @@
 </div>
 
 
-<div class="panel panel-default">
+<div class="panel panel-default" >
     <div class="panel-heading" style="background:#ffeaa7;">
-        <h4>Listagem de Usuários</h4>
+        <h4 >Listagem de Pacientes</h4>
     </div>
     <div class="panel-body">
         <table class="table table-striped">
@@ -33,20 +33,20 @@
                 <th>Id</th>
                 <th>Nome</th>
                 <th>Cpf</th>
-                <th>Tipo</th>
+                <th>Telefone</th>
                 <th>Editar</th>
                 <th>Excluir</th>
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($usuarios as $usuario): ?>
-                <tr>
-                    <td><?=$usuario->getId();?></td>
-                    <td><?=$usuario->getNome();?></td>
-                    <td><?=$usuario->getCpf();?></td>
-                    <td><?=$usuario->getTipo();?></td>
-                    <td><a href="ControllerUsuario.php?op=editar&id=<?=$usuario->getId();?>" class="btn btn-primary">Editar</a></td>
-                    <td><a href="ControllerUsuario.php?op=excluir&id=<?=$usuario->getId();?>" class="btn btn-danger">Excluir</a></td>
+            <?php foreach ($pacientes as $paciente): ?>
+                <tr >
+                    <td><?=$paciente->getId();?></td>
+                    <td><?=$paciente->getNome();?></td>
+                    <td><?=$paciente->getCpf();?></td>
+                    <td><?=$paciente->getTelefone();?></td>
+                    <td><a href="ControllerPaciente.php?op=editar&id=<?=$paciente->getId();?>" class="btn btn-primary">Editar</a></td>
+                    <td><a href="ControllerPaciente.php?op=excluir&id=<?=$paciente->getId();?>" class="btn btn-danger">Excluir</a></td>
                     
                 </tr>
             <?php endforeach; ?>

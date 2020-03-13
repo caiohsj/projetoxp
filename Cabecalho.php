@@ -15,7 +15,7 @@
 
         <div class="container">
             <!-- título http://getbootstrap.com/components/#jumbotron -->
-            <div class="jumbotron">
+            <div class="jumbotron" style="background: #ffeaa7;">
                 <h1 class="text-center">Projeto XP</h1>
             </div>
 
@@ -28,7 +28,7 @@
             </div>
 
             <!-- navegação http://getbootstrap.com/components/#navbar -->
-            <nav class="navbar navbar-default">
+            <nav class="navbar "  style="background: #ffeaa7;">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -48,7 +48,10 @@
                          id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
                             <?php if($_SESSION["tipo"] == "proprietario"): ?>
-                                <li><a href="ControllerUsuario.php?op=lista">Usuarios</a></li>
+                                <li><a href="ControllerUsuario.php?op=lista" style="color: black;">Usuarios</a></li>
+                            <?php endif; ?>
+                            <?php if($_SESSION["tipo"] == "secretario"): ?>
+                                <li><a href="ControllerPaciente.php?op=lista" style="color: black;">Pacientes</a></li>
                             <?php endif; ?>
                         </ul>
                     </div>

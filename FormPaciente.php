@@ -54,7 +54,7 @@ body {
 .signupForm {
   width: 100%;
   padding: 30px 0;
-  background: #f39c12;
+  background: #ffeaa7;
   transition: .2s;
   h2 {
     font-weight: 300;
@@ -108,27 +108,20 @@ body {
 
 <div class="signupSection">
  
-<form action="ControllerUsuario.php?op=salvar" class="signupForm" method="post" style="background: #ffeaa7;">
-    <h2>Cadastro de Usuários</h2>
-    <input type="hidden" value="<?= $usuario->getId(); ?>">
+<form action="ControllerPaciente.php?op=salvar" class="signupForm" method="post">
+    <h2>Cadastro de Pacientes</h2>
     <ul class="noBullet">
       <li>
-        <input type="text" class="inputFields" id="nome" name="nome" placeholder="Nome" value="<?= $usuario->getNome(); ?>" />
+        <input type="text" class="inputFields" id="nome" name="nome" placeholder="Nome" />
       </li>
       <li>
-        <input type="text" class="inputFields" id="cpf" name="cpf" placeholder="CPF" value="<?= $usuario->getCpf() ?>">
+        <input type="text" class="inputFields" id="cpf" name="cpf" placeholder="CPF">
       </li>
       <li>
-        <label for="senha"></label>
-        <input type="text" class="inputFields" id="senha" name="senha" placeholder="senha" value="<?= $usuario->getSenha(); ?>">
+        <label for="telefone"></label>
+        <input type="text" class="inputFields" id="telefone" name="telefone" placeholder="telefone">
       </li>
       <li>
-        <label for="senha"></label>
-        <select type="text" class="inputFields" id="tipo" name="tipo">
-          <option value="proprietario" <?php if($usuario->getTipo() == "proprietario") echo "selected"; ?>>Proprietario</option>
-          <option value="secretario" <?php if($usuario->getTipo() == "secretario") echo "selected"; ?>>Secretario</option>
-          <option value="medico" <?php if($usuario->getTipo() == "medico") echo "selected"; ?>>Médico</option>
-        </select>
       </li>
       <li id="center-btn">
         <button type="submit" id="join-btn" name="join" alt="Join" value="Join">Salvar</button>

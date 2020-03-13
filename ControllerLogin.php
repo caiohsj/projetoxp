@@ -18,7 +18,7 @@ class ControllerLogin
     public static function requisicoes()
     {
         require_once 'autoload.php';
-        self::$arquivoForm = "FormLogin.php";
+        self::$arquivoForm = "FormLoginNovo.php";
         self::$arquivoLista = "";
         if(isset($_GET["op"])) {
             switch ($_GET["op"]) {
@@ -50,7 +50,11 @@ class ControllerLogin
             $_SESSION["nome"] = $usuario->getNome();
             $_SESSION["tipo"] = $usuario->getTipo();
 
-            header("location: ControllerUsuario.php?op=form");
+            if($_SESSION["tipo"] == "secretario") {
+                header("location: ControllerPaciente.php?op=form");
+            } elseif($_SESSION["tipo"] == "proprietario") {
+                header("location: ControllerUsuario.php?op=form");
+            }
         } else {
             $_SESSION["erroLogin"] = "Dados invalidos";
             header("location: ControllerLogin.php");
